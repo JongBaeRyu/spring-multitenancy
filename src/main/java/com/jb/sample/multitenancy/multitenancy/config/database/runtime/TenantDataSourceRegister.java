@@ -8,11 +8,14 @@ import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
+import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotationMetadata;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Slf4j
@@ -29,6 +32,7 @@ public class TenantDataSourceRegister implements ImportBeanDefinitionRegistrar {
         Map<Object, DataSource> dataSources = getDefaultDataSources();
         propertyValues.add("defaultTargetDataSource", dataSources.get("Default"));
         propertyValues.add("targetDataSources", dataSources);
+
         registry.registerBeanDefinition("dataSource",genericBeanDefinition);
     }
 

@@ -85,7 +85,17 @@ public class CarRestTest {
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].name", is("X5")))
                 .andExpect(jsonPath("$[0].color", is("Orange")))
-                .andDo(print());;
+                .andDo(print());
+
+        //// 다시조회
+
+        // when
+        mockMvc.perform(get(url).header("X-Tenant", vwTenant))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].name", is("Tiguan")))
+                .andExpect(jsonPath("$[0].color", is("Black")))
+                .andDo(print());
     }
 
     @Test

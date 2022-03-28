@@ -4,8 +4,8 @@ spring:
 #    url: jdbc:h2:tcp://localhost/~/utils/h2/db/multi1
 #    username: sa
 #    password:
-#  flyway:
-#    enabled: false
+  flyway:
+    enabled: false
 
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
@@ -31,17 +31,17 @@ logging:
         type: trace
 
 # 동적으로 적용하지 않고 DB 을 멀티로 설정 후 사용하는 경우 아래 셋팅으로 테스트
-#tenants:
-#  datasources:
-#    multi1:
+tenants:
+  datasources:
+    multi1:
 #      jdbcUrl: jdbc:h2:tcp://localhost/~/utils/h2/db/multi1
-#      jdbcUrl: jdbc:h2:mem:multi1
-#      driverClassName: org.h2.Driver
-#      username: sa
-#      password:
-#    multi2:
+      jdbcUrl: jdbc:h2:mem:multi1
+      driverClassName: org.h2.Driver
+      username: sa
+      password:
+    multi2:
 #      jdbcUrl: jdbc:h2:tcp://localhost/~/utils/h2/db/multi2
-#      jdbcUrl: jdbc:h2:mem:multi2
-#      driverClassName: org.h2.Driver
-#      username: sa
-#      password:
+      jdbcUrl: jdbc:h2:mem:multi2
+      driverClassName: org.h2.Driver
+      username: sa
+      password:
