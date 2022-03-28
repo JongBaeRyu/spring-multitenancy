@@ -55,9 +55,9 @@ public class CarRestTest {
                 .andDo(print());
 
         // controller 호출 ( muilti2 tenant 입력)
-        String tenantUrl = "/api/tenant/register?username=sa&password=&tenantName=multi2&url=jdbc:h2:mem:multi2";
-        mockMvc.perform(get(tenantUrl))
-                .andExpect(status().isOk());
+//        String tenantUrl = "/api/tenant/register?username=sa&password=&tenantName=multi2&url=jdbc:h2:mem:multi2";
+//        mockMvc.perform(get(tenantUrl))
+//                .andExpect(status().isOk());
 
 //        String tenant = "multi2";
         String tenant = "multi2";
