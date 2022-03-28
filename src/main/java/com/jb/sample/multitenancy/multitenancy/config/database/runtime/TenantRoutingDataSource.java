@@ -11,10 +11,6 @@ public class TenantRoutingDataSource extends AbstractRoutingDataSource {
 
     private ConcurrentHashMap<Object, DataSource> backupTargetDataSources = new ConcurrentHashMap<>();
 
-    public TenantRoutingDataSource(ConcurrentHashMap<Object, DataSource> backupTargetDataSources) {
-        this.backupTargetDataSources = backupTargetDataSources;
-    }
-
     @Override
     protected Object determineCurrentLookupKey() {
         return ThreadTenantStorage.getTenantId();
